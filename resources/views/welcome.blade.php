@@ -21,6 +21,34 @@
     <!-- Main CSS File -->
     <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+         .social-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: scale(1.1);
+        }
+        
+        .contact-card {
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-3px);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+    </style>
 </head>
 
 <body class="index-page">
@@ -28,78 +56,65 @@
     @include('components.hero')
     @include('components.menu')
     @include('components.profile')
+    @include('menu.formalumni')
+    @include('menu.surveysiswa')
   
-    <footer class="bg-[#008b8b] text-[#fff8dc] w-full mt-16">
-    <div class="container mx-auto p-6 md:p-10">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <!-- Logo & Informasi -->
-            <div class="flex flex-col md:flex-row items-center md:items-start text-center md:text-left">
-                <img src="{{ asset('images/logo smk1.png') }}" alt="Logo SMKN 1 Bengkulu" class="h-20 md:h-24 mb-4 md:mb-0" />
-                <div class="md:ml-4">
-                    <p class="font-bold">SMK Negeri 1 Bengkulu</p>
-                    <p>Jalan Jati No 41,</p>
-                    <p>Kelurahan Padang Jati,</p>
-                    <p>Kecamatan Ratu Samban,</p>
-                    <p>Kota Bengkulu</p>
-                    <p>38222</p>
+    <footer class="bg-teal-700 text-white w-full mt-16">
+    <div class="max-w-7xl mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <!-- Info Sekolah -->
+            <div class="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-6">
+                <img src="{{ asset('images/logo smk1.png') }}" alt="Logo SMKN 1 Bengkulu" class="h-24 w-auto" />
+                <div class="text-center md:text-left">
+                    <h3 class="text-2xl text-white/90 font-bold mb-2">SMK Negeri 1 Bengkulu</h3>
+                    <p class="text-white/90">Jalan Jati No 41, Kelurahan Padang Jati</p>
+                    <p class="text-white/90">Kecamatan Ratu Samban, Kota Bengkulu</p>
+                    <p class="text-white/90">38222</p>
                 </div>
             </div>
 
-            <!-- Ikon Sosmed -->
-            <div class="flex justify-center md:justify-end">
-                <div class="grid grid-cols-4 gap-6 md:gap-8">
-                    <a href="https://www.youtube.com/channel/UCydN3u2tCciDrJKo06ug-oQ" class="flex justify-center hover:text-inherit">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 md:w-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
-                            <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
-                        </svg>
+            <!-- Sosial Media dan Kontak -->
+            <div class="flex flex-col items-center md:items-end space-y-6">
+                <!-- Media Sosial -->
+                <div class="flex space-x-5">
+                    <a href="https://www.youtube.com/channel/UCydN3u2tCciDrJKo06ug-oQ" class="social-icon">
+                        <i class="fab fa-youtube text-3xl hover:text-red-600 text-red-500"></i>
                     </a>
-                    <a href="https://twitter.com/smkn1kotabkl" class="flex justify-center hover:text-inherit">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 md:w-12" viewBox="0 0 50 50" fill="currentColor">
-                            <path d="M 5.9199219 6 L 20.582031 27.375 L 6.2304688 44 L 9.4101562 44 L 21.986328 29.421875 L 31.986328 44 L 44 44 L 28.681641 21.669922 L 42.199219 6 L 39.029297 6 L 27.275391 19.617188 L 17.933594 6 L 5.9199219 6 z M 9.7167969 8 L 16.880859 8 L 40.203125 42 L 33.039062 42 L 9.7167969 8 z"></path>
-                        </svg>
+                    <a href="https://twitter.com/smkn1kotabkl" class="social-icon">
+                        <i class="fab fa-twitter text-3xl hover:text-blue-500 text-blue-400"></i>
                     </a>
-                    <a href="https://web.facebook.com/Smkn1KotaBengkulu/" class="flex justify-center hover:text-inherit">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 md:w-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                        </svg>
+                    <a href="https://web.facebook.com/Smkn1KotaBengkulu/" class="social-icon">
+                        <i class="fab fa-facebook text-3xl hover:text-blue-700 text-blue-600"></i>
                     </a>
-                    <a href="https://instagram.com/bkk_smkn1bengkulu" class="flex justify-center hover:text-inherit">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 md:w-12" viewBox="0 0 32 32" fill="#fff">
-                            <g data-name="camera android app aplication phone">
-                                <path d="M30.56 8.47a8 8 0 0 0-7-7 64.29 64.29 0 0 0-15.06 0 8 8 0 0 0-7 7 64.29 64.29 0 0 0 0 15.06 8 8 0 0 0 7 7 64.29 64.29 0 0 0 15.06 0 8 8 0 0 0 7-7 64.29 64.29 0 0 0 0-15.06zM8.7 3.42a63.65 63.65 0 0 1 14.6 0 6 6 0 0 1 5.28 5.28A63 63 0 0 1 29 15h-5a8 8 0 0 0-15.93 0H3a63 63 0 0 1 .39-6.3A6 6 0 0 1 8.7 3.42zM22 16a6 6 0 1 1-6-6 6 6 0 0 1 6 6zm1.3 12.58a63.65 63.65 0 0 1-14.6 0 6 6 0 0 1-5.28-5.28A63 63 0 0 1 3 17h5a8 8 0 0 0 15.86 0h5a63 63 0 0 1-.39 6.3 6 6 0 0 1-5.17 5.28z"/>
-                                <path d="M16 12a4 4 0 1 0 4 4 4 4 0 0 0-4-4zm0 6a2 2 0 1 1 2-2 2 2 0 0 1-2 2z"/>
-                                <circle cx="24" cy="8" r="1"/>
-                            </g>
-                        </svg>
+                    <a href="https://instagram.com/bkk_smkn1bengkulu" class="social-icon">
+                        <i class="fab fa-instagram text-3xl hover:text-pink-600 text-pink-500"></i>
                     </a>
+                </div>
+
+                <!-- Kontak -->
+                <div class="text-center md:text-right">
+                    <h4 class="text-lg text-white/90 font-semibold mb-3">Hubungi Kami:</h4>
+                    <div class="flex flex-col sm:flex-row sm:justify-end gap-3">
+                        <a href="https://wa.me/6289628893111" class="contact-card flex items-center justify-center gap-2 bg-white/10 px-4 py-2 rounded-lg hover:bg-white/20">
+                            <i class="fab fa-whatsapp text-green-400 text-xl"></i>
+                            <span>Maya</span>
+                        </a>
+                        <a href="https://wa.me/6282261962048" class="contact-card flex items-center justify-center gap-2 bg-white/10 px-4 py-2 rounded-lg hover:bg-white/20">
+                            <i class="fab fa-whatsapp text-green-400 text-xl"></i>
+                            <span>Fachri</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Garis Pemisah -->
-        <div class="border-t border-white my-6"></div>
-
-        <!-- Kontak -->
-        <div class="w-full">
-                <p class="font-semibold tracking-wider text-sm text-center mb-4">Hubungi kami di:</p>
-                <div class="flex flex-col md:flex-row justify-center items-center md:space-x-8 space-y-4 md:space-y-0">
-                    <a href="http://wa.me/6289628893111" class="flex flex-col items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" viewBox="0 0 512 512">
-                            <path fill="#dfe900" d="M255.995 73.82A182.18 182.18 0 1 0 438.185 256a182.183 182.183 0 0 0-182.19-182.18zm93.956 251.72c-7.823 12.093-14.617 24.635-47.285 25.382-33.399.035-67.931-27.624-93.085-55.213-25.111-24.433-48.35-55.986-48.314-86.572.747-32.678 13.298-39.48 25.383-47.285a12.372 12.372 0 0 1 12.384 2.232c5.757 5.001 31.007 30.26 31.007 30.26s8.974 7.49 2.778 15.778c-4.922 6.608-16.287 18.773-17.78 20.372l4.271 8.033c5.704 9.404 16.576 25.928 32.854 39.323 10.986 9.017 29.558 18.923 29.558 18.914 2.672-2.479 13.763-12.761 19.95-17.385 8.298-6.205 15.786 2.778 15.786 2.778s25.26 25.26 30.27 31.024a12.361 12.361 0 0 1 2.223 12.358z" data-name="Call"/>
-                        </svg>
-                        <span class="text-xs mt-2">Maya</span>
-                    </a>
-                    <a href="http://wa.me/6282261962048" class="flex flex-col items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" viewBox="0 0 512 512">
-                            <path fill="#dfe900" d="M255.995 73.82A182.18 182.18 0 1 0 438.185 256a182.183 182.183 0 0 0-182.19-182.18zm93.956 251.72c-7.823 12.093-14.617 24.635-47.285 25.382-33.399.035-67.931-27.624-93.085-55.213-25.111-24.433-48.35-55.986-48.314-86.572.747-32.678 13.298-39.48 25.383-47.285a12.372 12.372 0 0 1 12.384 2.232c5.757 5.001 31.007 30.26 31.007 30.26s8.974 7.49 2.778 15.778c-4.922 6.608-16.287 18.773-17.78 20.372l4.271 8.033c5.704 9.404 16.576 25.928 32.854 39.323 10.986 9.017 29.558 18.923 29.558 18.914 2.672-2.479 13.763-12.761 19.95-17.385 8.298-6.205 15.786 2.778 15.786 2.778s25.26 25.26 30.27 31.024a12.361 12.361 0 0 1 2.223 12.358z" data-name="Call"/>
-                        </svg>
-                        <span class="text-xs mt-2">Fachri</span>
-                    </a>
-                </div>
-            </div>
+        <!-- Copyright -->
+        <div class="border-t border-white/20 mt-10 pt-6 text-center text-white/70 text-sm">
+            <p>&copy; {{ date('Y') }} Bursa Kerja Khusus SMKN 1 Bengkulu. All rights reserved.</p>
+        </div>
     </div>
 </footer>
+
 
 
     <!-- Scroll Top -->
